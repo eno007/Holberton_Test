@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+scores="score_history"
+biggest=100   # maximum number possible
+guess=0                   # guessed by player
+guesses=1                # number of guesses made
+number=$(($$ % $biggest))  # random number, between 1 and $biggest
+echo "***LET'S PLAY!***"
+echo "Choose a number from 1-100: "
+read guess 
+
+while (( number!=guess ))
+do 
+	if (( guess<number ))
+	then 
+		echo "Our secret number is bigger"
+	elif (( guess>number ))
+	then 
+		echo "Our secret number is smaller"
+	else 
+		echo "Correct! You guessed $number in $guesses guesses"
+	fi
+	echo "Try again!! Choose from 1-100: "
+        read guess
+	(( guesses++ ))
+done       
+echo $guesses >> $scores
+cat $scores
