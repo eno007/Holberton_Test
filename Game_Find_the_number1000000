@@ -1,11 +1,11 @@
 #!/usr/bin/bash
-scores="score_history"
-biggest=100   # maximum number possible
+scores="score_history1000000"
+biggest=1000000   # maximum number possible
 guess=0                   # guessed by player
 guesses=1                # number of guesses made
 number=$(($$ % $biggest))  # random number, between 1 and $biggest
 echo "***LET'S PLAY!***"
-echo "Choose a number from 1-100: "
+echo "Choose a number from 1 - 1 000 000: "
 read guess 
 
 while (( number!=guess ))
@@ -19,7 +19,7 @@ do
 	else 
 		sleep 1
 	fi
-	echo "Try again!! Choose from 1-100: "
+	echo "Try again!! Choose from 1 - 1 000 000: "
         read guess
 	(( guesses++ ))
 done      
