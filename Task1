@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+echo "Enter a number: "
+read n
+P=1
+for (( i=2; i<=n; i++ ))
+do 
+	P=$(( P*i ))
+done       
+echo "$P"

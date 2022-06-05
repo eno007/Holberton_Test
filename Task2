@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+echo "Enter a number: "
+read n
+i=1
+P=0
+while (( i<=n ))
+do 
+	P=$(( P+i ))
+	i=$i+2
+done       
+echo "$P"
