@@ -4,7 +4,7 @@ int main()
 {
 	const char *days[7] = {"Monday", "Tuesday", "Wednesday", "Thursaday", "Friday", "Saturday", "Sunday"};
 	int i;
-	int arr[1000];
+	int arr[7];
 
 	for (i = 0; i < 7; ++i)
 	{
@@ -13,6 +13,13 @@ int main()
 	}
 
 	temp_info(arr);
+	temp_sort(arr, 7);
+	printf("Temperatures sorted:\n");
+        for (i = 0; i < 7; i++)
+        {
+                printf("%i ", arr[i]);
+        }
+        printf("\n");
 	return 0;
 }
 void temp_info(int * temps)
@@ -36,5 +43,20 @@ void temp_info(int * temps)
 	printf("Coldest day is %s with temperature %i\n", days[j], coldest);
 	printf("Amplitude is %i\n", amplitude);
 }
+void temp_sort(int *temps, int n)
+{
+	int i, j, k;
 
-
+	for (i = 0; i < n - 1; i++)
+	{
+		for (j = i + 1; j < n; j++)
+		{
+			if (temps[j] < temps[i])
+			{
+				k = temps[i];
+				temps[i] = temps[j];
+				temps[j] = k;
+			}
+		}
+	}
+}
